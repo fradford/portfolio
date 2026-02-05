@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import {
   Crimson_Text,
-  Montserrat,
   Lato,
   Noto_Sans_Symbols_2,
   JetBrains_Mono,
@@ -12,26 +11,30 @@ import Footer from "../components/footer";
 
 const crimsonText = Crimson_Text({
   weight: "400",
+  subsets: ["latin"],
   variable: "--font-crimson-text",
+  display: "swap",
 });
-
-const montserrat = Montserrat({ weight: "900", variable: "--font-montserrat" });
 
 const jetBrainsMono = JetBrains_Mono({
   weight: "700",
+  subsets: ["latin"],
   variable: "--font-jetbrains-mono",
+  display: "swap",
 });
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
   subsets: ["latin"],
   variable: "--font-lato",
+  display: "swap",
 });
 
 const notoSymbol = Noto_Sans_Symbols_2({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-noto-symbol",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -55,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${crimsonText.variable} ${montserrat.variable} ${lato.variable} ${notoSymbol.variable} ${jetBrainsMono.variable} antialiased`}
+        className={`${crimsonText.variable} ${lato.variable} ${notoSymbol.variable} ${jetBrainsMono.variable} antialiased`}
       >
         <div className="flex flex-col justify-between w-full h-full min-h-screen">
           <Header />
