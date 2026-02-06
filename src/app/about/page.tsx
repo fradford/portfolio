@@ -15,12 +15,7 @@ export default function AboutPage() {
         />
         <div className="flex flex-col gap-4">
           <h1 className="font-title">About</h1>
-          <p className="font-serif text-justify">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia
-            recusandae numquam dolores, minima vel maxime temporibus architecto
-            aliquam illo cumque tenetur nostrum non, eos quis quibusdam
-            similique. Provident, recusandae repellendus!
-          </p>
+          <p className="font-serif text-justify">Write some real text here</p>
         </div>
       </div>
 
@@ -75,8 +70,7 @@ export default function AboutPage() {
           Outside of work, I enjoy hiking, photography, cooking, and exploring
           new technologies. I also enjoy tinkering with electronics and fighting
           with my 3D printer. Lately I've been into mechanical keyboards and
-          bookbinding. If you want to chat about any of that or just say hi,
-          feel free to reach out!
+          bookbinding.
         </p>
       </div>
     </>
