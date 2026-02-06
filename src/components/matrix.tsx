@@ -25,12 +25,21 @@ export default function Matrix() {
     let columns = canvas.width / fontSize;
     let drops = new Array(Math.floor(columns)).fill(1);
 
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = canvas.width / fontSize;
+      drops = new Array(Math.floor(columns)).fill(1);
+    });
+
     setInterval(() => {
-      ctx.fillStyle = "#fffdf420";
+      ctx.fillStyle = getComputedStyle(document.documentElement)
+        .backgroundColor.replace(")", ", 0.25)")
+        .replace("rgb", "rgba");
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < drops.length; i++) {
         let text = letterList[Math.floor(Math.random() * letterList.length)];
-        ctx.fillStyle = "#182133";
+        ctx.fillStyle = getComputedStyle(document.documentElement).color;
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
         drops[i]++;
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
