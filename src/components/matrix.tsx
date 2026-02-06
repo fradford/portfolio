@@ -2,8 +2,15 @@
 
 import { useRef, useEffect } from "react";
 
-export default function Matrix() {
+export default function Matrix({
+  fontSize = 24,
+  characters = "0123456789[]@#$%^&*()+-=~",
+}: {
+  fontSize?: number;
+  characters?: string;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const charList = characters.split("");
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -12,45 +19,70 @@ export default function Matrix() {
     const ctx = canvas.getContext("2d");
 
     if (!ctx) return;
-    ctx.font = "16px monospace";
 
     // Set canvas to full screen
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
 
     // Characters to be used
-    const letterList =
-      "アァイィウヴエェオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤャユュヨョラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const fontSize = 16;
     let columns = canvas.width / fontSize;
-    let drops = new Array(Math.floor(columns)).fill(1);
+    let colHeights = new Array(Math.floor(columns)).fill(
+      canvas.height / fontSize + fontSize,
+    );
 
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
+
       columns = canvas.width / fontSize;
-      drops = new Array(Math.floor(columns)).fill(1);
+
+      colHeights = new Array(Math.floor(columns)).fill(
+        canvas.height / fontSize + fontSize,
+      );
     });
 
     setInterval(() => {
-      ctx.fillStyle = getComputedStyle(document.documentElement)
-        .backgroundColor.replace(")", ", 0.25)")
-        .replace("rgb", "rgba");
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < drops.length; i++) {
-        let text = letterList[Math.floor(Math.random() * letterList.length)];
+      for (let i = 0; i < colHeights.length; i++) {
+        // clear the character at the current position
+        ctx.fillStyle = getComputedStyle(
+          document.documentElement,
+        ).backgroundColor;
+        ctx.fillRect(
+          i * fontSize,
+          colHeights[i] * fontSize,
+          fontSize,
+          fontSize,
+        );
+
+        // draw a new character at the current position
+        let text = charList[Math.floor(Math.random() * charList.length)];
         ctx.fillStyle = getComputedStyle(document.documentElement).color;
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        drops[i]++;
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
-          drops[i] = 0;
+        ctx.fillText(text, i * fontSize, colHeights[i] * fontSize);
+
+        // delete characters above a certain height randomly
+        ctx.fillStyle = getComputedStyle(
+          document.documentElement,
+        ).backgroundColor;
+        ctx.fillRect(
+          i * fontSize,
+          (colHeights[i] - 20) * fontSize,
+          fontSize,
+          fontSize,
+        );
+
+        colHeights[i]++;
+
+        if (colHeights[i] * fontSize > canvas.height && Math.random() > 0.95) {
+          colHeights[i] = 0;
         }
       }
     }, 33);
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none opacity-50">
+    <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none opacity-30">
       <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );

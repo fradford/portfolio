@@ -6,7 +6,7 @@ export default function ProjectsPage() {
     <>
       <div className="flex flex-col gap-6 items-start justify-start w-full">
         <h1 className="font-title">Projects</h1>
-        <h3 className="font-serif">My best work goes here</h3>
+        <h3 className="font-serif">Explore some of my past work</h3>
       </div>
 
       <Divider />

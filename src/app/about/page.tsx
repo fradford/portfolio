@@ -66,6 +66,19 @@ export default function AboutPage() {
           ]}
         />
       </div>
+
+      <Divider />
+
+      <div className="flex flex-col gap-4 items-start justify-start w-full">
+        <h2 className="font-title">Looking for more?</h2>
+        <p className="font-serif text-justify">
+          Outside of work, I enjoy hiking, photography, cooking, and exploring
+          new technologies. I also enjoy tinkering with electronics and fighting
+          with my 3D printer. Lately I've been into mechanical keyboards and
+          bookbinding. If you want to chat about any of that or just say hi,
+          feel free to reach out!
+        </p>
+      </div>
     </>
   );
 }

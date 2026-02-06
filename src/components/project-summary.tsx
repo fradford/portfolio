@@ -16,8 +16,9 @@ export default function ProjectSummary({
   className?: string;
 }) {
   return (
-    <div
-      className={`w-full flex flex-col gap-4 p-4 rounded-md shadow-md bg-paper-200 dark:bg-ink-800 ${className}`}
+    <a
+      href={`/projects/${title.toLowerCase().replace(/\s+/g, "-")}`}
+      className={`w-full flex flex-col gap-4 hover:translate-y-0.5 transition-transform duration-200 ${className}`}
     >
       <span className="h-1 bg-ink-900 dark:bg-paper-100" />
       <div className="flex flex-col gap-4 h-full">
@@ -28,14 +29,7 @@ export default function ProjectSummary({
           height={256}
           className="w-full aspect-3/2 object-cover"
         />
-        <NavLink
-          href={`/projects/${title.toLowerCase().replace(/\s+/g, "-")}`}
-          className="font-mono font-bold"
-        >
-          {title}
-        </NavLink>
-
-        <p className="font-serif text-justify flex-1">{description}</p>
+        <h3 className="font-mono font-bold">{title}</h3>
 
         <div className="flex flex-wrap gap-2">
           {techStack.map((tech) => (
@@ -47,7 +41,9 @@ export default function ProjectSummary({
             </span>
           ))}
         </div>
+
+        <p className="font-serif text-justify flex-1">{description}</p>
       </div>
-    </div>
+    </a>
   );
 }
