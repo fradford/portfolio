@@ -21,7 +21,6 @@ export default function ProjectsPage() {
         <ProjectSummary
           title="Sage"
           description="Sage is a python application that converts image files into music."
-          imageSrc="/logo.svg"
           techStack={["Python"]}
         />
         <ProjectSummary

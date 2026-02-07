@@ -31,7 +31,7 @@ export default function Header() {
       max-w-(--max-content-width) mx-auto mt-8 py-2 px-4 lg:px-0 w-full 
       sticky top-0 left-0 right-0 z-10 
       font-sans 
-      border-b border-border dark:border-border-dark"
+      border-b border-paper-300"
       ref={headerRef}
     >
       <NavBar />
