@@ -25,7 +25,9 @@ export default function Matrix({
     canvas.height = window.innerHeight;
     ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
 
-    // Characters to be used
+    ctx.fillStyle = getComputedStyle(document.documentElement).backgroundColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     let columns = canvas.width / fontSize;
     let colHeights = new Array(Math.floor(columns)).fill(
       canvas.height / fontSize + fontSize,
@@ -44,6 +46,15 @@ export default function Matrix({
     });
 
     setInterval(() => {
+      // fade the canvas slightly to create a trailing effect
+      ctx.fillStyle = getComputedStyle(
+        document.documentElement,
+      ).backgroundColor.replace(
+        /rgba?\((\d+), (\d+), (\d+)(?:, ([\d.]+))?\)/,
+        "rgba($1, $2, $3, 0.05)",
+      );
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
       for (let i = 0; i < colHeights.length; i++) {
         // clear the character at the current position
         ctx.fillStyle = getComputedStyle(

@@ -13,19 +13,9 @@ export default function BlogPage() {
 
       <div className="w-full flex flex-col gap-12">
         <BlogSummary
-          title="Blog Post 1"
-          date={new Date("2025-05-12")}
-          blurb="This is a summary of my first blog post. It gives a brief overview of the content and entices readers to click through and read more."
-        />
-        <BlogSummary
-          title="Blog Post 2"
-          date={new Date("2025-07-10")}
-          blurb="This is a summary of my second blog post. It gives a brief overview of the content and entices readers to click through and read more."
-        />
-        <BlogSummary
-          title="Blog Post 3"
-          date={new Date("2025-09-15")}
-          blurb="This is a summary of my third blog post. It gives a brief overview of the content and entices readers to click through and read more."
+          title="Blog Coming Soon"
+          date={new Date()}
+          blurb="I have a lot of ideas for blog posts, but I haven't gotten around to writing any of them yet. Stay tuned!"
         />
       </div>
     </>

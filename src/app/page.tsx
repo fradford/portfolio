@@ -7,8 +7,7 @@ export default function Home() {
         <h1 className="font-title">Francis Radford</h1>
         <h3 className="font-serif">
           Software Developer &amp; Designer with experience building web and
-          desktop applications in domains such as government, manufacturing, and
-          geospatial.
+          desktop applications across a variety of domains.
         </h3>
       </div>
 

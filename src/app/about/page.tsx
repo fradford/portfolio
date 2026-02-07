@@ -15,7 +15,13 @@ export default function AboutPage() {
         />
         <div className="flex flex-col gap-4">
           <h1 className="font-title">About</h1>
-          <p className="font-serif text-justify">Write some real text here</p>
+          <p className="font-serif text-justify">
+            Hi, I'm Francis. I build software that solves real problems like
+            handling sensor data streaming at thousands of samples per second,
+            helping to easily analyze satellite imagery for green energy
+            projects, or replacing unstable legacy systems with modern,
+            maintainable code.
+          </p>
         </div>
       </div>
 
@@ -67,10 +73,19 @@ export default function AboutPage() {
       <div className="flex flex-col gap-4 items-start justify-start w-full">
         <h2 className="font-title">Looking for more?</h2>
         <p className="font-serif text-justify">
-          Outside of work, I enjoy hiking, photography, cooking, and exploring
-          new technologies. I also enjoy tinkering with electronics and fighting
-          with my 3D printer. Lately I've been into mechanical keyboards and
-          bookbinding.
+          My path into software started unexpectedly in high school when the
+          woodshop teacher introduced me to programming. I took a detour through
+          electrical engineering, which gave me a fundamental understanding of
+          how our digital world works, but I found myself drawn back to code. I
+          have since completed a degree in software engineering, which gave me
+          not only a strong foundation in data structures, algorithms, and
+          software design principles, but also over a year of hands-on industry
+          experience through paid co-op roles.
+        </p>
+        <p className="font-serif text-justify">
+          Outside of work, I enjoy hiking, photography, cooking, and tinkering
+          with electronics. Lately I've been fighting with my 3D printer,
+          building mechanical keyboards, and learning bookbinding.
         </p>
       </div>
     </>

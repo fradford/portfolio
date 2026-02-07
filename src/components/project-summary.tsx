@@ -25,9 +25,9 @@ export default function ProjectSummary({
         <Image
           src={imageSrc}
           alt={`${title} image`}
-          width={256}
-          height={256}
-          className="w-full aspect-3/2 object-cover"
+          width={300}
+          height={200}
+          className="w-full aspect-3/2 object-cover rounded-sm"
         />
         <h3 className="font-mono font-bold">{title}</h3>
 
