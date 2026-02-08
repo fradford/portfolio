@@ -20,7 +20,10 @@ export default function NavBar() {
       </a>
 
       <div className="md:hidden">
-        <button onClick={() => setIsOpen(!isOpen)} className="text-l font-bold">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-l font-bold cursor-pointer"
+        >
           {isOpen ? "Close" : "Menu"}
         </button>
       </div>

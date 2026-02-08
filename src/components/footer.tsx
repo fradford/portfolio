@@ -1,5 +1,4 @@
 import Divider from "./divider";
-import NavLink from "./nav-link";
 
 export default function Footer() {
   return (
