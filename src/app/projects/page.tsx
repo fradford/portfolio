@@ -1,7 +1,18 @@
 import Divider from "@/src/components/divider";
 import ProjectSummary from "@/src/components/project-summary";
+import prisma from "@/lib/prisma";
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await prisma.project.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    include: {
+      tags: true,
+      links: true,
+    },
+  });
+
   return (
     <>
       <div className="flex flex-col gap-6 items-start justify-start w-full">
@@ -12,29 +23,19 @@ export default function ProjectsPage() {
       <Divider />
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-        <ProjectSummary
-          title="Gesturely"
-          description="Gesturely is a smart home automation system that uses machine learning to detect and recognize user gestures, allowing for intuitive control of smart devices."
-          imageSrc="/gesturely.svg"
-          techStack={["Python", "Machine Learning", "IoT"]}
-        />
-        <ProjectSummary
-          title="Sage"
-          description="Sage is a python application that converts image files into music."
-          techStack={["Python"]}
-        />
-        <ProjectSummary
-          title="Age of Mail"
-          description="Age of Mail is a Caribbean mail delivery simulator set during the “Age of Sail”. Age of Mail was created in 48 hours for the Ludum Dare 53 game jam."
-          imageSrc="/age-of-mail.png"
-          techStack={["Godot", "GDScript", "Game Development"]}
-        />
-        <ProjectSummary
-          title="SPEKS: A Murder Mystery"
-          description="SPEKS is an interactive murder mystery game that sees players take the role of a robot investigator aboard a shuttle bound for Mars, tasked with solving the murder of the ship's captain. SPEKS was created in 48 hours for the Ludum Dare 48 game jam."
-          imageSrc="/speks.png"
-          techStack={["Godot", "GDScript", "Game Development"]}
-        />
+        {projects.map((project) => (
+          <ProjectSummary
+            key={project.id}
+            title={project.title}
+            description={project.description}
+            imageSrc={project.imageUrl || undefined}
+            techStack={project.tags.map((tag) => tag.text)}
+            links={project.links.map((link) => ({
+              href: link.href,
+              friendlyName: link.friendlyName,
+            }))}
+          />
+        ))}
       </div>
     </>
   );

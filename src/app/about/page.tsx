@@ -73,14 +73,14 @@ export default function AboutPage() {
       <div className="flex flex-col gap-4 items-start justify-start w-full">
         <h2 className="font-title">Looking for more?</h2>
         <p className="font-serif text-justify">
-          My path into software started unexpectedly in high school when the
-          woodshop teacher introduced me to programming. I took a detour through
-          electrical engineering, which gave me a fundamental understanding of
-          how our digital world works, but I found myself drawn back to code. I
-          have since completed a degree in software engineering, which gave me
-          not only a strong foundation in data structures, algorithms, and
-          software design principles, but also over a year of hands-on industry
-          experience through paid co-op roles.
+          My path into software started in high school, when I took a tech class
+          which introduced woodshop, automotive mechanics, and programming. I
+          took a detour through electrical engineering, which gave me a
+          fundamental understanding of how our digital world works, but I found
+          myself drawn back to code. I have since completed a degree in software
+          engineering, which gave me not only a strong foundation in data
+          structures, algorithms, and software design principles, but also over
+          a year of hands-on industry experience through paid co-op roles.
         </p>
         <p className="font-serif text-justify">
           Outside of work, I enjoy hiking, photography, cooking, and tinkering

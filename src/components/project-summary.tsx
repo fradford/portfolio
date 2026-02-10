@@ -1,27 +1,24 @@
 import Image from "next/image";
+import Tag from "./tag";
 
 export default function ProjectSummary({
   title,
-  description,
+  description = null,
   imageSrc = "/placeholder.jpg",
   techStack = [],
+  links = [],
   className,
 }: {
   title: string;
-  description: string;
+  description: string | null;
   imageSrc?: string;
   techStack?: string[];
+  links?: { href: string; friendlyName: string | null }[];
   className?: string;
 }) {
   return (
-    <a
-      href={`/projects/${title
-        .toLowerCase()
-        .replace(/[^a-z0-9\s]/g, "")
-        .replace(/\s+/g, "-")}`}
-      className={`w-full block hover:translate-y-0.5 transition-transform duration-200 ${className}`}
-    >
-      <div className="flex flex-col h-full">
+    <div className={`w-full ${className}`}>
+      <div className="flex flex-col h-full justify-start">
         <Image
           src={imageSrc}
           alt={`${title} image`}
@@ -30,21 +27,27 @@ export default function ProjectSummary({
           className="w-full aspect-3/2 object-cover rounded-sm"
         />
         <h3 className="font-mono font-bold mt-2">{title}</h3>
+
         <span className="h-0.5 bg-ink-900 dark:bg-paper-100" />
 
-        <div className="flex flex-wrap gap-2 mt-4">
+        <div className="flex flex-wrap gap-2 mt-2">
           {techStack.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 rounded-full bg-paper-300 dark:bg-ink-700 text-sm font-mono text-ink-900 dark:text-paper-100"
-            >
-              {tech}
-            </span>
+            <Tag key={tech} text={tech} />
           ))}
         </div>
 
-        <p className="font-serif text-justify flex-1 mt-4">{description}</p>
+        {description && (
+          <p className="font-serif text-justify mt-2">{description}</p>
+        )}
+
+        <div className="flex flex-wrap gap-2 mt-2">
+          {links.map((link) => (
+            <a key={link.href} href={link.href} className="underline text-body">
+              {link.friendlyName || link.href}
+            </a>
+          ))}
+        </div>
       </div>
-    </a>
+    </div>
   );
 }

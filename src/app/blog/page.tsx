@@ -1,7 +1,17 @@
 import BlogSummary from "@/src/components/blog-summary";
 import Divider from "@/src/components/divider";
+import prisma from "@/lib/prisma";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogs = await prisma.post.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    include: {
+      tags: true,
+    },
+  });
+
   return (
     <>
       <div className="flex flex-col gap-6 items-start justify-start w-full">
@@ -12,11 +22,18 @@ export default function BlogPage() {
       <Divider />
 
       <div className="w-full flex flex-col gap-12">
-        <BlogSummary
-          title="Blog Coming Soon"
-          date={new Date()}
-          blurb="I have a lot of ideas for blog posts, but I haven't gotten around to writing any of them yet. Stay tuned!"
-        />
+        {blogs.map((blog) => (
+          <BlogSummary
+            key={blog.id}
+            id={blog.id}
+            title={blog.title}
+            date={blog.createdAt}
+            blurb={
+              blog.body.slice(0, 200) + (blog.body.length > 200 ? "..." : "")
+            }
+            tags={blog.tags.map((tag) => tag.text)}
+          />
+        ))}
       </div>
     </>
   );
