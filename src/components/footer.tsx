@@ -18,7 +18,7 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-col items-center">
-        {/* <p className="text-caption">Sunrise, Parabellum.</p> */}
+        <p className="text-caption">Sunrise, Parabellum.</p>
         <p className="text-caption">
           © {new Date().getFullYear()} Francis Radford
         </p>
