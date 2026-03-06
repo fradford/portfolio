@@ -16,7 +16,7 @@ export default async function BlogPage() {
     <>
       <div className="flex flex-col gap-6 items-start justify-start w-full">
         <h1 className="font-title">Blog</h1>
-        <h3 className="font-serif">I've had thoughts in the past</h3>
+        <h3 className="font-serif">I&apos;ve had thoughts in the past</h3>
       </div>
 
       <Divider />

@@ -68,7 +68,7 @@ export default function Matrix({
         );
 
         // draw a new character at the current position
-        let text = charList[Math.floor(Math.random() * charList.length)];
+        const text = charList[Math.floor(Math.random() * charList.length)];
         ctx.fillStyle = getComputedStyle(document.documentElement).color;
         ctx.fillText(text, i * fontSize, colHeights[i] * fontSize);
 
@@ -90,7 +90,7 @@ export default function Matrix({
         }
       }
     }, 33);
-  }, []);
+  }, [charList, fontSize]);
 
   return (
     <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none opacity-30">

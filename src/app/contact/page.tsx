@@ -4,15 +4,15 @@ export default function ContactPage() {
   return (
     <>
       <div className="flex flex-col gap-6 items-start justify-start w-full">
-        <h1 className="font-title">Let's Talk</h1>
-        <h3 className="font-serif">I'd love to hear from you</h3>
+        <h1 className="font-title">Let&apos;s Talk</h1>
+        <h3 className="font-serif">I&apos;d love to hear from you</h3>
       </div>
 
       <Divider />
 
       <div className="flex flex-col gap-4 items-start justify-start w-full">
         <p className="font-serif text-justify">
-          If you'd like to get in touch, whether it's to discuss a potential job
+          If you&apos;d like to get in touch, whether it&apos;s to discuss a potential job
           opportunity, collaborate on a project, or just say hi, feel free to
           reach out! You can find me on{" "}
           <a

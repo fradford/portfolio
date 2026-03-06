@@ -16,7 +16,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-4">
           <h1 className="font-title">About</h1>
           <p className="font-serif text-justify">
-            Hi, I'm Francis. I build software that solves real problems like
+            Hi, I&apos;m Francis. I build software that solves real problems like
             handling sensor data streaming at thousands of samples per second,
             helping to easily analyze satellite imagery for green energy
             projects, or replacing unstable legacy systems with modern,
@@ -74,7 +74,7 @@ export default function AboutPage() {
         <h2 className="font-title">Looking for more?</h2>
         <p className="font-serif text-justify">
           My path into software started in high school, when I took a tech class
-          which introduced woodshop, automotive mechanics, and programming. I
+          which introduced carpentry, automotive mechanics, and programming. I
           took a detour through electrical engineering, which gave me a
           fundamental understanding of how our digital world works, but I found
           myself drawn back to code. I have since completed a degree in software
@@ -84,7 +84,7 @@ export default function AboutPage() {
         </p>
         <p className="font-serif text-justify">
           Outside of work, I enjoy hiking, photography, cooking, and tinkering
-          with electronics. Lately I've been fighting with my 3D printer,
+          with electronics. Lately I&apos;ve been fighting with my 3D printer,
           building mechanical keyboards, and learning bookbinding.
         </p>
       </div>
