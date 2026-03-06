@@ -3,21 +3,21 @@
 import React from "react";
 import NavLink from "./nav-link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const menu = [
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
-    { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
   ];
 
   return (
     <nav className="grid grid-cols-2 items-center justify-items-end w-full gap-4">
-      <a href="/" className="justify-self-start">
+      <Link href="/" className="justify-self-start">
         <Image src="/logo.svg" alt="Logo" width={48} height={48} priority />
-      </a>
+      </Link>
 
       <div className="md:hidden">
         <button
