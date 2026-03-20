@@ -16,7 +16,10 @@ export default function NavBar() {
   return (
     <nav className="grid grid-cols-2 items-center justify-items-end w-full gap-4">
       <Link href="/" className="justify-self-start">
-        <Image src="/logo.svg" alt="Logo" width={48} height={48} priority />
+        <picture>
+          <source srcSet="/logo-dark.svg" media="(prefers-color-scheme: dark)" />
+          <Image src="/logo-light.svg" alt="Logo" width={64} height={64} priority />
+        </picture>
       </Link>
 
       <div className="md:hidden">

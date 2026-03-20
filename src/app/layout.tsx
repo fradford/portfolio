@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   title: "Francis Radford",
   description: "My personal website showcasing some of projects and skills.",
   icons: {
-    icon: "/icon.svg",
+    icon: "/logo-black.svg",
   },
 };
 
